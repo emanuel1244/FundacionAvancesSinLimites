@@ -1,0 +1,293 @@
+/* Eventos Page Styles */
+.eventos-page {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 40px 0;
+}
+
+.eventos-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==================== SIDEBAR ==================== */
+.eventos-sidebar {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.sidebar-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a2a4e;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #0052cc;
+}
+
+.eventos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.evento-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  background: #f8f9fa;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+  text-align: left;
+}
+
+.evento-item:hover {
+  background: #e8f0ff;
+  border-color: #0052cc;
+  color: #0052cc;
+}
+
+.evento-item.active {
+  background: #0052cc;
+  border-color: #0052cc;
+  color: white;
+}
+
+.evento-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 196, 0, 0.3);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.evento-item.active .evento-num {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.evento-nombre {
+  flex: 1;
+}
+
+/* ==================== EVENTO DETALLE ==================== */
+.evento-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: fadeInRight 0.6s ease-out;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.evento-header {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.evento-imagen {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.evento-header:hover .evento-imagen {
+  transform: scale(1.05);
+}
+
+.evento-contenido {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.evento-titulo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c41e3a;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.evento-descripcion {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+.evento-info-box {
+  background: #f0f7ff;
+  border-left: 4px solid #0052cc;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 25px 0;
+}
+
+.evento-detalles {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.evento-seccion {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.seccion-titulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a2a4e;
+  margin-bottom: 12px;
+}
+
+.seccion-texto {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .eventos-container {
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+  }
+
+  .evento-titulo {
+    font-size: 2rem;
+  }
+
+  .evento-imagen {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eventos-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .eventos-sidebar {
+    position: static;
+    padding: 20px;
+  }
+
+  .sidebar-title {
+    font-size: 1.2rem;
+  }
+
+  .eventos-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .evento-item {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .evento-contenido {
+    padding: 25px;
+  }
+
+  .evento-titulo {
+    font-size: 1.6rem;
+  }
+
+  .evento-descripcion {
+    font-size: 0.95rem;
+  }
+
+  .evento-imagen {
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .eventos-page {
+    padding: 20px 0;
+  }
+
+  .eventos-sidebar {
+    padding: 15px;
+  }
+
+  .sidebar-title {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .eventos-list {
+    grid-template-columns: 1fr;
+  }
+
+  .evento-item {
+    padding: 10px;
+  }
+
+  .evento-nombre {
+    font-size: 0.85rem;
+  }
+
+  .evento-contenido {
+    padding: 20px;
+  }
+
+  .evento-titulo {
+    font-size: 1.3rem;
+  }
+
+  .evento-descripcion {
+    font-size: 0.9rem;
+  }
+
+  .seccion-titulo {
+    font-size: 1.1rem;
+  }
+
+  .seccion-texto {
+    font-size: 0.9rem;
+  }
+
+  .evento-imagen {
+    height: 250px;
+  }
+}

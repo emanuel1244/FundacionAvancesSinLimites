@@ -1,0 +1,45 @@
+<div class="eventos-page">
+  <div class="eventos-container">
+    <!-- Sidebar con lista de eventos -->
+    <div class="eventos-sidebar">
+      <h3 class="sidebar-title">Nuestros Eventos</h3>
+      <div class="eventos-list">
+        <button 
+          *ngFor="let evento of eventos" 
+          class="evento-item" 
+          [class.active]="eventoSeleccionado.id === evento.id"
+          (click)="seleccionarEvento(evento)">
+          <span class="evento-num">{{ evento.id }}</span>
+          <span class="evento-nombre">{{ evento.titulo }}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Contenido principal del evento -->
+    <div class="evento-detalle">
+      <div class="evento-header">
+        <img [src]="eventoSeleccionado.imagen" [alt]="eventoSeleccionado.titulo" class="evento-imagen">
+      </div>
+
+      <div class="evento-contenido">
+        <h1 class="evento-titulo">{{ eventoSeleccionado.titulo }}</h1>
+        
+        <p class="evento-descripcion">{{ eventoSeleccionado.descripcion }}</p>
+
+        <div class="evento-info-box">
+          <p class="evento-detalles">{{ eventoSeleccionado.detalles }}</p>
+        </div>
+
+        <div class="evento-seccion">
+          <h3 class="seccion-titulo">Participa</h3>
+          <p class="seccion-texto">{{ eventoSeleccionado.llamada }}</p>
+        </div>
+
+        <div class="evento-seccion">
+          <h3 class="seccion-titulo">Apoya Nuestra Misión</h3>
+          <p class="seccion-texto">{{ eventoSeleccionado.objetivo }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,424 @@
+/* ========================================
+   MISIÓN, VISIÓN Y VALORES PAGE
+   ======================================== */
+
+:root {
+  --primary-color: #0052cc;
+  --dark-bg: #0052cc;
+  --light-text: #f8f9fa;
+  --accent-color: #ffc400;
+}
+
+.mvv-page {
+  background: #ffffff;
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.mvv-header {
+  background: #0052cc;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  padding-top: 60px;
+}
+
+.header-gradient {
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 196, 0, 0.08);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(20px); }
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  position: relative;
+  z-index: 2;
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.text-primary {
+  color: #0052cc;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: #b0b8c1;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+/* ========================================
+   CARDS SECTION
+   ======================================== */
+
+.mvv-content {
+  padding: 80px 0;
+}
+
+.mvv-card {
+  background: white;
+  border: 2px solid #e0e6f0;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mvv-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-15px);
+  box-shadow: 0 20px 60px rgba(0, 102, 204, 0.15);
+}
+
+.mision-card {
+  border-top: 4px solid var(--primary-color);
+}
+
+.vision-card {
+  border-top: 4px solid var(--accent-color);
+}
+
+.card-header-custom {
+  background: rgba(0, 82, 204, 0.05);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vision-card .card-icon {
+  color: var(--accent-color);
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--dark-bg);
+  margin: 0;
+}
+
+.card-body-custom {
+  padding: 30px;
+  flex: 1;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  margin: 0;
+  text-align: justify;
+}
+
+/* ========================================
+   VALORES SECTION
+   ======================================== */
+
+.valores-section {
+  background: white;
+  padding: 80px 0;
+  border-radius: 20px;
+  margin: 40px 0;
+}
+
+.section-header {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--dark-bg);
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.title-divider {
+  width: 80px;
+  height: 4px;
+  background: #ffc400;
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 20px;
+}
+
+.valor-card {
+  background: rgba(0, 82, 204, 0.01);
+  border: 2px solid #e0e6f0;
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+}
+
+.valor-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(0, 102, 204, 0.1);
+  background: rgba(0, 82, 204, 0.05);
+}
+
+.valor-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.valor-card:hover .valor-icon {
+  color: var(--accent-color);
+  transform: scale(1.15);
+}
+
+.valor-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--dark-bg);
+  margin-bottom: 15px;
+}
+
+.valor-text {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+
+.mvv-cta {
+  background: #0052cc;
+  padding: 80px 40px;
+  border-radius: 20px;
+  color: white;
+  margin: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mvv-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 196, 0, 0.08);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.mvv-cta h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.mvv-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 2;
+}
+
+.mvv-cta .btn-primary {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .mvv-content {
+    padding: 60px 0;
+  }
+
+  .card-header-custom {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-body-custom {
+    padding: 20px;
+  }
+
+  .card-text {
+    text-align: center;
+  }
+
+  .valores-section {
+    padding: 60px 0;
+    margin: 30px 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .valor-card {
+    padding: 30px 20px;
+  }
+
+  .mvv-cta {
+    padding: 60px 30px;
+    margin: 60px 0 40px;
+  }
+
+  .mvv-cta h3 {
+    font-size: 1.5rem;
+  }
+
+  .mvv-cta p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .mvv-card {
+    border-radius: 12px;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .valor-icon {
+    font-size: 2rem;
+  }
+
+  .valor-title {
+    font-size: 1.1rem;
+  }
+
+  .valor-text {
+    font-size: 0.85rem;
+  }
+
+  .mvv-cta {
+    padding: 40px 20px;
+    margin: 40px 0 30px;
+  }
+
+  .mvv-cta h3 {
+    font-size: 1.2rem;
+  }
+
+  .mvv-cta p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==================== CONTACT (MAP + FORM) ==================== */
+.mvv-contact {
+  padding: 40px 0 60px;
+}
+
+.mvv-contact .map-wrapper,
+.mvv-contact .form-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(10, 30, 80, 0.08);
+  overflow: hidden;
+}
+
+.mvv-contact .map-wrapper iframe,
+.mvv-contact .form-wrapper iframe {
+  width: 100%;
+  height: 700px;
+  border: 0;
+}
+
+@media (max-width: 1024px) {
+  .mvv-contact .map-wrapper iframe,
+  .mvv-contact .form-wrapper iframe {
+    height: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mvv-contact {
+    padding: 30px 0;
+  }
+
+  .mvv-contact .map-wrapper iframe,
+  .mvv-contact .form-wrapper iframe {
+    height: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mvv-contact .map-wrapper iframe,
+  .mvv-contact .form-wrapper iframe {
+    height: 450px;
+  }
+}

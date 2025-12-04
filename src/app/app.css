@@ -1,0 +1,363 @@
+/* ========================================
+   PROFESSIONAL NAVBAR
+   ======================================== */
+
+:root {
+  --primary-color: #0052cc;
+  --dark-bg: #0052cc;
+  --light-text: #f8f9fa;
+  --accent-color: #ffc400;
+  --success-color: #10b981;
+}
+
+.bg-custom-dark {
+  background: #0052cc !important;
+}
+
+.navbar {
+  background: #0052cc !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid #ffc400;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.brand-text {
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.brand-highlight {
+  color: var(--light-text);
+  font-weight: 800;
+}
+
+.nav-item-custom {
+  position: relative;
+  padding: 8px 16px !important;
+  transition: all 0.3s ease;
+  color: var(--light-text) !important;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.nav-item-custom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-item-custom:hover::after,
+.nav-item-custom.active::after {
+  width: 100%;
+}
+
+.nav-item-custom:hover {
+  color: var(--accent-color) !important;
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+
+.main-content {
+  min-height: calc(100vh - 300px);
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* ========================================
+   PROFESSIONAL FOOTER
+   ======================================== */
+
+.professional-footer {
+  background: #0052cc;
+  color: var(--light-text);
+  padding: 60px 0 0;
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #ffc400;
+  background-size: 200% 100%;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; }
+}
+
+.footer-section {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.footer-section:hover {
+  transform: translateY(-8px);
+}
+
+.footer-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--light-text);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+.footer-title i {
+  color: var(--accent-color);
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #b0b8c1;
+  margin-bottom: 10px;
+}
+
+.footer-text a {
+  transition: all 0.3s ease;
+}
+
+.footer-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-link-small {
+  color: #b0b8c1;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.footer-link-small:hover {
+  color: var(--accent-color);
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 196, 0, 0.15);
+  border: 2px solid rgba(255, 196, 0, 0.3);
+  border-radius: 50%;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.social-btn:hover {
+  background: var(--accent-color);
+  color: #0052cc;
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 196, 0, 0.3);
+}
+
+/* Contact CTA */
+.contact-cta {
+  background: rgba(255, 196, 0, 0.08);
+  border: 2px solid rgba(255, 196, 0, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.contact-cta:hover {
+  border-color: var(--accent-color);
+  background: rgba(255, 196, 0, 0.12);
+  box-shadow: 0 15px 40px rgba(255, 196, 0, 0.15);
+}
+
+/* Footer Divider */
+.footer-divider {
+  height: 1px;
+  background: rgba(255, 196, 0, 0.2);
+  margin: 30px 0;
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  color: #b0b8c1;
+  letter-spacing: 0.3px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* ========================================
+   FLOATING WHATSAPP BUTTON
+   ======================================== */
+
+.floating-whatsapp-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 999;
+  width: 70px;
+  height: 70px;
+  background: #10b981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 32px;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: floatingPulse 3s ease-in-out infinite;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes floatingPulse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.floating-whatsapp-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6);
+  animation: none;
+}
+
+.floating-whatsapp-btn:active {
+  transform: scale(0.95);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .brand-logo {
+    font-size: 1.1rem;
+  }
+
+  .brand-highlight {
+    display: none;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .professional-footer {
+    margin-top: 60px;
+    padding: 40px 0 0;
+  }
+
+  .footer-title {
+    font-size: 1rem;
+  }
+
+  .footer-text {
+    font-size: 0.9rem;
+  }
+
+  .contact-cta {
+    padding: 20px;
+  }
+
+  .floating-whatsapp-btn {
+    bottom: 25px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .footer-links {
+    justify-content: center;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .brand-logo {
+    font-size: 1rem;
+  }
+
+  .nav-item-custom {
+    padding: 6px 12px !important;
+    font-size: 0.95rem;
+  }
+
+  .professional-footer {
+    padding: 30px 0 0;
+    margin-top: 40px;
+  }
+
+  .footer-title {
+    font-size: 0.95rem;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.8rem;
+  }
+
+  .social-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+  }
+
+  .floating-whatsapp-btn {
+    bottom: 20px;
+    right: 15px;
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+  }
+}
