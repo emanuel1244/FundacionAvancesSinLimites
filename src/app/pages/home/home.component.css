@@ -160,6 +160,130 @@
   margin: 0;
 }
 
+/* Section slider styles (full-width slider for .section-slider-home) */
+.section-slider-home {
+  position: relative;
+  overflow: hidden;
+}
+
+#sectionSlider {
+  width: 100%;
+  height: 520px;
+  position: relative;
+}
+
+#sectionSlider .carousel-item {
+  height: 100%;
+}
+
+#sectionSlider .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.92) saturate(1.02);
+  animation: kenburns 12s ease-in-out infinite alternate;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 4;
+  padding: 40px;
+  width: 55%;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-content-inner {
+  text-align: left;
+  color: white;
+  padding: 0;
+  animation: fadeInLeft 1.2s ease-out forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.brand-highlight{
+  color: white;
+}
+
+.carousel-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffc400;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.carousel-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .carousel-content {
+    width: 50%;
+    padding: 30px;
+  }
+  
+  .carousel-title {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .carousel-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #sectionSlider {
+    height: 300px;
+  }
+  
+  .carousel-content {
+    width: 100%;
+    padding: 20px;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+  
+  .carousel-title {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  
+  .carousel-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .carousel-content-inner {
+    text-align: center;
+  }
+}
+
 .carousel-control-prev,
 .carousel-control-next {
   width: 50px;

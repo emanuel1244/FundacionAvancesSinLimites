@@ -1,59 +1,35 @@
 <div class="home-page">
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-gradient"></div>
-    <div class="container-xl">
-      <div class="row align-items-center min-vh-100">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <div class="hero-content">
-            <h1 class="hero-title">
-              <span class="text-primary">FUNDACIÓN</span>
-              <span class="text-highlight">Avanza Sin Límites</span>
-            </h1>
-            <p class="hero-subtitle">Trabajamos por la inclusión y el bienestar de personas con discapacidad en Colombia
-            </p>
-            <p class="hero-description">Ofrecemos programas integrales de rehabilitación, educación y emprendimiento
-              diseñados para transformar vidas.</p>
-            <div class="cta-buttons">
-              <button class="btn btn-primary btn-lg me-3" (click)="onVerMisionVisionValores()">
-                <i class="fas fa-arrow-right me-2"></i>Conoce Nuestro Propósito
-              </button>
-              <a href="https://wa.me/573007654321" target="_blank" class="btn btn-outline-primary btn-lg">
-                <i class="fab fa-whatsapp me-2"></i>Contactanos
-              </a>
-            </div>
+  <!-- Hero Section: full-width slider using images from heroPhotos -->
+  <section class="section-slider-home">
+    <div class="container-fluid px-0">
+      <div id="sectionSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-inner">
+          <div *ngFor="let photo of heroPhotos; let i = index" class="carousel-item" [class.active]="i===0">
+                <img [src]="getPhotoSrc(photo)"
+                  [alt]="'Slide ' + (i + 1)"
+                  loading="lazy"
+                  [style.object-position]="getPhotoPos(photo)" />
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="hero-carousel-container">
-            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button *ngFor="let photo of heroPhotos; let i = index" type="button" data-bs-target="#sectionSlider"
+            [attr.data-bs-slide-to]="i" [class.active]="i===0"></button>
+        </div>
 
-              <div class="carousel-indicators">
-                <button *ngFor="let photo of heroPhotos; let i = index" type="button" data-bs-target="#heroCarousel"
-                  [attr.data-bs-slide-to]="i" [class.active]="i===0">
-                </button>
-              </div>
-
-              <div class="carousel-inner">
-                <div *ngFor="let photo of heroPhotos; let i = index" class="carousel-item" [class.active]="i===0">
-                  <img [src]="'assets/' + photo" [alt]="'Slide ' + (i + 1)">
-                  <div class="carousel-caption">
-                    <h5>Apoyamos a niños y familias</h5>
-                    <p>En situación de discapacidad</p>
-                  </div>
-                </div>
-              </div>
-
-              <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-              </button>
-
-            </div>
+        <!-- Slider Content: Title and Description (only on first slide) -->
+        <div class="carousel-content" *ngIf="activeSlideIndex === 0">
+          <div class="carousel-content-inner">
+            <h1 class="carousel-title" >FUNDACION <span class="brand-highlight">Avanza Sin Limites</span></h1>
+            <p class="carousel-description">
+              Somos una fundación dedicada a mejorar la calidad de vida y fomentar la plena inclusión 
+              social de personas con discapacidad sensorial (auditiva, visual), motora, e intelectual, 
+              cognitiva y psicosocial. Ofrecemos programas de rehabilitación integral y emprendimiento 
+              que atienden las necesidades de los beneficiarios y sus familias. Nuestro objetivo es 
+              validar a cada persona como sujeto legalmente capaz en la sociedad.
+            </p>
           </div>
         </div>
 
@@ -221,69 +197,65 @@
 
   <section class="news-section">
     <div class="container-xl">
-      <h2 class="text-center news-title mb-5">Últimas Noticias</h2>
+      <div class="news-header text-center mb-5">
+        <h2 class="news-title">Últimas Noticias</h2>
+        <p class="news-subtitle">Mantente informado sobre nuestro impacto y actividades</p>
+      </div>
 
-
-      <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
-
-
-        <div class="carousel-inner">
-
-
-          <div class="carousel-item active">
-            <div class="news-card d-flex">
-             <img src="assets/fundacion.jpeg" class="news-image" alt="Noticia 1">
-                alt="Noticia 1">
-              <div class="news-overlay">
-                <p class="news-date">Fecha: 10 Diciembre 2025</p>
-                <h3 class="news-heading">Título de Noticia Importante 1</h3>
-                <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae magna sit
-                  amet eros placerat gravida.</p>
-                <a href="#" class="btn btn-primary mt-3 px-4 py-2">Leer más</a>
-              </div>
+      <div class="news-grid">
+        <!-- Noticia 1 -->
+        <div class="news-card-v2">
+          <div class="news-card-image">
+            <img src="assets/fundacion.jpeg" alt="Noticia 1">
+            <span class="news-card-date">21 de junio de 2025</span>
+          </div>
+          <div class="news-card-content">
+            <h3 class="news-card-title">Inside con Catalina Escobar, fundadora y presidenta de I...</h3>
+            <p class="news-card-text">La fundación trabaja para madres adolescentes y mujeres en situación de vulnerabilidad; su propósito es...</p>
+            <div class="news-card-footer">
+              <span class="news-card-source">LA REPÚBLICA</span>
+              <a href="#" class="news-card-link">Leer más</a>
             </div>
           </div>
-
-
-          <div class="carousel-item">
-            <div class="news-card d-flex">
-              <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200" class="news-image"
-                alt="Noticia 2">
-              <div class="news-overlay">
-                <p class="news-date">Fecha: 8 Diciembre 2025</p>
-                <h3 class="news-heading">Nuevo Proyecto Social Inicia</h3>
-                <p class="news-description">Iniciamos un nuevo programa para fortalecer habilidades de los jóvenes en
-                  situación de discapacidad.</p>
-                <a href="#" class="btn btn-primary mt-3 px-4 py-2">Leer más</a>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="carousel-item">
-            <div class="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200">
-              <img src="assets/noticia3.jpg" class="news-image" alt="Noticia 3">
-              <div class="news-overlay">
-                <p class="news-date">Fecha: 5 Diciembre 2025</p>
-                <h3 class="news-heading">Fundación Recibe Reconocimiento</h3>
-                <p class="news-description">Por su labor en apoyo a familias con niños en condición de discapacidad.</p>
-                <a href="#" class="btn btn-primary mt-3 px-4 py-2">Leer más</a>
-              </div>
-            </div>
-          </div>
-
-
         </div>
 
+        <!-- Noticia 2 -->
+        <div class="news-card-v2">
+          <div class="news-card-image">
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200" alt="Noticia 2">
+            <span class="news-card-date">21 junio de 2025</span>
+          </div>
+          <div class="news-card-content">
+            <h3 class="news-card-title">Cambiamos vidas de las personas más humildes:...</h3>
+            <p class="news-card-text">En la entrevista con NTN24 se habla del trabajo con madres adolescentes en extrema pobreza y se narran...</p>
+            <div class="news-card-footer">
+              <span class="news-card-source">NTN24</span>
+              <a href="#" class="news-card-link">Leer más</a>
+            </div>
+          </div>
+        </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
+        <!-- Noticia 3 -->
+        <div class="news-card-v2">
+          <div class="news-card-image">
+            <img src="assets/noticia3.jpg" alt="Noticia 3">
+            <span class="news-card-date">4 junio de 2025</span>
+          </div>
+          <div class="news-card-content">
+            <h3 class="news-card-title">Medellín fue escenario del Women Working for the...</h3>
+            <p class="news-card-text">El foro buscó visibilizar el papel transformador de las mujeres y promover acciones frente a desafíos...</p>
+            <div class="news-card-footer">
+              <span class="news-card-source">CARACOL RADIO</span>
+              <a href="#" class="news-card-link">Leer más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-action text-center mt-5">
+        <button class="btn btn-news-more" (click)="onVerTodasNoticias()">
+          Ver Todas las Noticias <i class="fas fa-arrow-right ms-2"></i>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-
-
       </div>
     </div>
   </section>
