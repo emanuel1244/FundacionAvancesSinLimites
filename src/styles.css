@@ -131,3 +131,211 @@ h1, h2, h3, h4, h5, h6 {
 .slide-in-right {
   animation: slideInRight 0.6s ease forwards;
 }
+/* NEWS SECTION — Diseño profesional */
+.news-section {
+  padding: 70px 0;
+}
+
+.news-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #003d99;
+}
+
+/* Contenedor de cada slide */
+.news-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  height: 480px;
+  background: #000;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de profundidad */
+.news-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+
+/* Imagen */
+.news-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+  transition: filter 0.4s ease;
+}
+
+.news-card:hover .news-image {
+  filter: brightness(40%);
+}
+
+/* Capa de contenido */
+.news-overlay {
+  position: relative;
+  padding: 40px;
+  color: #fff;
+  z-index: 10;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Fecha */
+.news-date {
+  opacity: 0.9;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+/* Título */
+.news-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+/* Descripción */
+.news-description {
+  font-size: 1rem;
+  color: #f1f1f1;
+  max-width: 700px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Botón */
+.news-overlay .btn-primary {
+  font-size: 1.05rem;
+  padding: 10px 28px;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 60px;          /* ancho del botón */
+  height: 60px;         /* alto del botón */
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 82, 204, 0.85); /* azul corporativo */
+  border-radius: 50%;   /* forma circular */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  opacity: 1;           /* siempre visibles */
+}
+
+/* Hover */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: #003d99;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* Iconos */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+  width: 28px;
+  height: 28px;
+}
+
+/* Posición */
+.carousel-control-prev {
+  left: 20px;
+}
+
+.carousel-control-next {
+  right: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 48px;
+    height: 48px;
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+/* =============================
+   HERO SECTION — FONDO VIVO Y ANIMADO
+   ============================= */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  /* Imagen + degradado */
+  background-image:
+    linear-gradient(rgba(0, 45, 120, 0.80), rgba(0, 45, 120, 0.80)),
+   url('/image/fundacion.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Animación del fondo */
+  background-size: 120% 120%;
+  animation: hero-gradient-move 14s ease-in-out infinite;
+}
+
+/* Movimiento suave del fondo */
+@keyframes hero-gradient-move {
+  0%   { background-position: 50% 50%; }
+  50%  { background-position: 60% 55%; }
+  100% { background-position: 50% 50%; }
+}
+
+/* Animación de entrada del texto */
+.hero-content {
+  animation: fadeInUp 1.2s ease-out both;
+}
+
+/* Animación de entrada del carrusel */
+.hero-carousel-container {
+  animation: slideInRight 1.2s ease-out both;
+}
+
+/* Ajuste opcional para textos */
+.hero-title span {
+  text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.hero-subtitle,
+.hero-description {
+  color: #f0f4ff;
+}
+
+/* Botones más visibles sobre fondo */
+.hero-section .btn-primary {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+.hero-section .btn-outline-primary {
+  border-color: #fff !important;
+  color: #fff !important;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(4px);
+}
+
+.hero-section .btn-outline-primary:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Carrusel imágenes redondeadas y sombras */
+.hero-carousel-container img {
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}

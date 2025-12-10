@@ -1,0 +1,205 @@
+<div class="consultorio-juridico-page">
+  <div class="container-xl">
+    <div class="row g-4 align-items-start">
+
+      <!-- COLUMNA PRINCIPAL -->
+      <div class="col-lg-8">
+        <div class="afiliacion-card">
+          <h1 class="afiliacion-title">Consultorio Jurídico Inclusivo</h1>
+          <p class="afiliacion-intro">
+            Completa el siguiente formulario para recibir orientación legal. 
+            La información será tratada de forma confidencial.
+          </p>
+
+          <form class="juridico-form" (ngSubmit)="enviarFormulario()" #formJuridico="ngForm">
+
+            <!-- 1. DATOS PERSONALES -->
+            <h3 class="section-title">1. Datos Personales</h3>
+
+            <div class="mb-3">
+              <label>Nombre completo</label>
+              <input type="text" class="form-control" required [(ngModel)]="formData.nombre" name="nombre"/>
+            </div>
+
+            <div class="mb-3">
+              <label>Documento (tipo y número)</label>
+              <input type="text" class="form-control" required [(ngModel)]="formData.documento" name="documento"/>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label>Edad</label>
+                <input type="number" class="form-control" [(ngModel)]="formData.edad" name="edad"/>
+              </div>
+              <div class="col-md-8">
+                <label>Fecha de nacimiento</label>
+                <input type="date" class="form-control" [(ngModel)]="formData.nacimiento" name="nacimiento"/>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label>Municipio / Departamento</label>
+              <input type="text" class="form-control" [(ngModel)]="formData.municipio" name="municipio"/>
+            </div>
+
+            <div class="mb-3">
+              <label>Dirección</label>
+              <input type="text" class="form-control" [(ngModel)]="formData.direccion" name="direccion"/>
+            </div>
+
+            <div class="mb-3">
+              <label>Teléfono / WhatsApp</label>
+              <input type="text" class="form-control" [(ngModel)]="formData.telefono" name="telefono"/>
+            </div>
+
+            <div class="mb-3">
+              <label>Correo (opcional)</label>
+              <input type="email" class="form-control" [(ngModel)]="formData.correo" name="correo"/>
+            </div>
+
+            <hr />
+
+            <!-- 2. DISCAPACIDAD -->
+            <h3 class="section-title">2. Discapacidad (opcional y confidencial)</h3>
+
+            <label class="fw-bold">Tipo de discapacidad:</label>
+            <div class="row mb-3">
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('discapacidad','Física')"/> Física</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('discapacidad','Visual')"/> Visual</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('discapacidad','Auditiva')"/> Auditiva</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('discapacidad','Intelectual')"/> Intelectual</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('discapacidad','Psicosocial')"/> Psicosocial</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('discapacidad','Múltiple')"/> Múltiple</div>
+              <div class="col-12 mt-2">
+                <input type="checkbox" (change)="toggleSelection('discapacidad','Otra')"/> Otra: 
+                <input type="text" class="form-control mt-1"/>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="fw-bold">¿Tiene certificado de discapacidad?</label><br />
+              <input type="radio" name="certificado" (change)="setRadio('certificado','Sí')"/> Sí
+              <input type="radio" name="certificado" class="ms-3" (change)="setRadio('certificado','No')"/> No
+              <input type="radio" name="certificado" class="ms-3" (change)="setRadio('certificado','En trámite')"/> En trámite
+            </div>
+
+            <div class="mb-3">
+              <label class="fw-bold">Apoyos que necesita:</label>
+              <div class="row">
+                <div class="col-6"><input type="checkbox" (change)="toggleSelection('apoyos','Intérprete de señas')"/> Intérprete de señas</div>
+                <div class="col-6"><input type="checkbox" (change)="toggleSelection('apoyos','Lectura fácil')"/> Lectura fácil</div>
+                <div class="col-6"><input type="checkbox" (change)="toggleSelection('apoyos','Apoyo en comprensión')"/> Apoyo en comprensión</div>
+                <div class="col-6"><input type="checkbox" (change)="toggleSelection('apoyos','Acceso físico')"/> Acceso físico</div>
+                <div class="col-6"><input type="checkbox" (change)="toggleSelection('apoyos','Apoyo tecnológico')"/> Apoyo tecnológico</div>
+                <div class="col-12 mt-2">
+                  <input type="checkbox" (change)="toggleSelection('apoyos','Otro')"/> Otro:
+                  <input type="text" class="form-control mt-1"/>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <!-- 3. ACUDIENTE -->
+            <h3 class="section-title">3. Acudiente o Cuidador (si aplica)</h3>
+
+            <div class="mb-3">
+              <label>Nombre</label>
+              <input type="text" class="form-control" [(ngModel)]="formData.acudiente" name="acudiente"/>
+            </div>
+
+            <div class="mb-3">
+              <label>Parentesco / Rol</label>
+              <input type="text" class="form-control" [(ngModel)]="formData.parentesco" name="parentesco"/>
+            </div>
+
+            <div class="mb-3">
+              <label>Contacto</label>
+              <input type="text" class="form-control" [(ngModel)]="formData.acudienteTel" name="acudienteTel"/>
+            </div>
+
+            <div class="mb-3">
+              <label>Documento</label>
+              <input type="text" class="form-control" [(ngModel)]="formData.acudienteDoc" name="acudienteDoc"/>
+            </div>
+
+            <hr />
+
+            <!-- 4. MOTIVO -->
+            <h3 class="section-title">4. Motivo de la Consulta</h3>
+
+            <label class="fw-bold">Área del derecho:</label>
+            <div class="row mb-3">
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Discapacidad')"/> Discapacidad</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Salud')"/> Salud</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Educación')"/> Educación</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Laboral')"/> Laboral</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Seguridad social')"/> Seguridad social</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Programas sociales')"/> Programas sociales</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Violencias / maltrato')"/> Violencias / maltrato</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Familia')"/> Familia</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Penal')"/> Penal</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Administrativo')"/> Administrativo</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Civil')"/> Civil</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Vivienda')"/> Vivienda</div>
+              <div class="col-6"><input type="checkbox" (change)="toggleSelection('area','Tránsito')"/> Tránsito</div>
+              <div class="col-12 mt-2">
+                <input type="checkbox" (change)="toggleSelection('area','Otro')"/> Otro:
+                <input type="text" class="form-control mt-1"/>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="fw-bold">Explique brevemente su caso:</label>
+              <textarea class="form-control" rows="4" [(ngModel)]="formData.motivo" name="motivo"></textarea>
+            </div>
+
+            <hr />
+
+            <!-- 6. CONSENTIMIENTO -->
+            <h3 class="section-title">6. Consentimiento</h3>
+
+            <p>Autorizo al Consultorio Jurídico a analizar mi caso, 
+              usar esta información de forma confidencial y contactarme para continuar la asesoría.</p>
+
+            <div class="mb-3">
+              <label>Nombre</label>
+              <input type="text" class="form-control" [(ngModel)]="formData.consentimientoNombre" name="consentimientoNombre"/>
+            </div>
+
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <label>Firma</label>
+                <input type="text" class="form-control"/>
+              </div>
+              <div class="col-md-6">
+                <label>Fecha</label>
+                <input type="date" class="form-control" [(ngModel)]="formData.consentimientoFecha" name="consentimientoFecha"/>
+              </div>
+            </div>
+
+            <button class="btn btn-primary w-100 mt-3" type="submit">Enviar formulario</button>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- COLUMNA LATERAL -->
+      <div class="col-lg-4">
+        <div class="afiliacion-info">
+          <h4>¿Para qué sirve este consultorio?</h4>
+          <ul>
+            <li>Recibir orientación legal con enfoque inclusivo.</li>
+            <li>Acompañamiento para tutelas, derechos de petición y trámites.</li>
+            <li>Atención prioritaria para personas con discapacidad y cuidadores.</li>
+          </ul>
+
+          <h4 class="mt-4">Contactos</h4>
+          <p>Teléfono: <a href="tel:+573001234567">+57 300 123 4567</a></p>
+          <p>Email: <a href="mailto:contacto@avanzasinlimites.org">contacto@avanzasinlimites.org</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
