@@ -1,4 +1,5 @@
 <div class="home-page">
+
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-gradient"></div>
@@ -10,8 +11,10 @@
               <span class="text-primary">FUNDACIÓN</span>
               <span class="text-highlight">Avanza Sin Límites</span>
             </h1>
-            <p class="hero-subtitle">Trabajamos por la inclusión y el bienestar de personas con discapacidad en Colombia</p>
-            <p class="hero-description">Ofrecemos programas integrales de rehabilitación, educación y emprendimiento diseñados para transformar vidas.</p>
+            <p class="hero-subtitle">Trabajamos por la inclusión y el bienestar de personas con discapacidad en Colombia
+            </p>
+            <p class="hero-description">Ofrecemos programas integrales de rehabilitación, educación y emprendimiento
+              diseñados para transformar vidas.</p>
             <div class="cta-buttons">
               <button class="btn btn-primary btn-lg me-3" (click)="onVerMisionVisionValores()">
                 <i class="fas fa-arrow-right me-2"></i>Conoce Nuestro Propósito
@@ -22,12 +25,17 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-6">
           <div class="hero-carousel-container">
             <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
               <div class="carousel-indicators">
-                <button *ngFor="let photo of heroPhotos; let i = index" type="button" data-bs-target="#heroCarousel" [attr.data-bs-slide-to]="i" [class.active]="i===0"></button>
+                <button *ngFor="let photo of heroPhotos; let i = index" type="button" data-bs-target="#heroCarousel"
+                  [attr.data-bs-slide-to]="i" [class.active]="i===0">
+                </button>
               </div>
+
               <div class="carousel-inner">
                 <div *ngFor="let photo of heroPhotos; let i = index" class="carousel-item" [class.active]="i===0">
                   <img [src]="'assets/' + photo" [alt]="'Slide ' + (i + 1)">
@@ -37,15 +45,52 @@
                   </div>
                 </div>
               </div>
+
               <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
               </button>
               <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
               </button>
+
             </div>
           </div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section py-5">
+    <div class="container-xl">
+      <div class="row align-items-center">
+
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h2 class="about-title">
+            Acerca de nuestra<br>Fundación
+          </h2>
+
+          <p class="about-text">
+            ASODISVALLE es una entidad sin ánimo de lucro, con amplia experiencia en el trabajo con población con
+            discapacidad, brindando servicios de educación, rehabilitación integral, alimentación y transporte.
+            Liderada por Jeison Aristizábal, diagnosticado con parálisis cerebral, un soñador y emprendedor que busca
+            oportunidades para esta población.
+            La fundación atiende alrededor de 800 niños, niñas, jóvenes y adultos con diferentes tipos de discapacidad.
+          </p>
+
+          <button class="btn btn-primary btn-lg mt-3">VER MÁS</button>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="about-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/HnKVkS_gYeQ?start=19" title="Fundación - Video" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -53,6 +98,7 @@
   <!-- Services Section -->
   <section class="services-section">
     <div class="container-xl">
+
       <div class="section-header text-center mb-5">
         <h2 class="section-title">¿Qué Ofrecemos?</h2>
         <div class="title-divider"></div>
@@ -60,35 +106,33 @@
       </div>
 
       <div class="row g-4">
+
         <div class="col-lg-4 col-md-6">
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
+            <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
             <h4 class="service-title">Educación</h4>
-            <p class="service-text">Programas de educación inclusiva adaptados a las necesidades de cada persona con discapacidad.</p>
+            <p class="service-text">Programas de educación inclusiva adaptados a las necesidades de cada persona con
+              discapacidad.</p>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6">
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
+            <div class="service-icon"><i class="fas fa-briefcase"></i></div>
             <h4 class="service-title">Emprendimiento</h4>
-            <p class="service-text">Capacitación en emprendimiento para generar oportunidades laborales independientes.</p>
+            <p class="service-text">Capacitación en emprendimiento para generar oportunidades laborales independientes.
+            </p>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6">
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-heartbeat"></i>
-            </div>
+            <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
             <h4 class="service-title">Rehabilitación</h4>
             <p class="service-text">Servicios de rehabilitación integral enfocados en mejorar la calidad de vida.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -96,18 +140,20 @@
   <!-- Stats Section -->
   <section class="stats-section">
     <div class="stats-background-overlay"></div>
+
     <div class="stats-header">
       <div class="container-xl">
         <div class="row align-items-center">
+
           <div class="col-lg-6">
             <p class="stats-subtitle">Tu generosidad es una</p>
             <h3 class="stats-highlight">OPORTUNIDAD<br>PARA ELLOS.</h3>
           </div>
+
           <div class="col-lg-6 text-lg-end d-none d-lg-block">
-            <div class="stats-icon">
-              <i class="fas fa-hands-helping"></i>
-            </div>
+            <div class="stats-icon"><i class="fas fa-hands-helping"></i></div>
           </div>
+
         </div>
       </div>
     </div>
@@ -115,38 +161,45 @@
     <div class="stats-content">
       <div class="container-xl">
         <div class="row">
+
           <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
             <div class="stat-card">
               <div class="stat-number">412</div>
               <div class="stat-label">Beneficiarios</div>
             </div>
           </div>
+
           <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
             <div class="stat-card">
               <div class="stat-number">30</div>
               <div class="stat-label">Eventos Realizados</div>
             </div>
           </div>
+
           <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
             <div class="stat-card">
               <div class="stat-number">7</div>
               <div class="stat-label">Años de Experiencia</div>
             </div>
           </div>
+
           <div class="col-lg-3 col-md-6">
             <div class="stat-card">
               <div class="stat-number">34</div>
               <div class="stat-label">Reconocimientos</div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </section>
 
+
   <!-- Memorable Moments Section -->
   <section class="moments-section">
     <div class="container-xl">
+
       <div class="section-header text-center mb-5">
         <h2 class="moments-title">Momentos <span class="moments-highlight">Inolvidables</span></h2>
       </div>
@@ -161,42 +214,126 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
+
+
+  <section class="news-section">
+    <div class="container-xl">
+      <h2 class="text-center news-title mb-5">Últimas Noticias</h2>
+
+
+      <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+
+
+        <div class="carousel-inner">
+
+
+          <div class="carousel-item active">
+            <div class="news-card d-flex">
+             <img src="assets/fundacion.jpeg" class="news-image" alt="Noticia 1">
+                alt="Noticia 1">
+              <div class="news-overlay">
+                <p class="news-date">Fecha: 10 Diciembre 2025</p>
+                <h3 class="news-heading">Título de Noticia Importante 1</h3>
+                <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae magna sit
+                  amet eros placerat gravida.</p>
+                <a href="#" class="btn btn-primary mt-3 px-4 py-2">Leer más</a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="carousel-item">
+            <div class="news-card d-flex">
+              <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200" class="news-image"
+                alt="Noticia 2">
+              <div class="news-overlay">
+                <p class="news-date">Fecha: 8 Diciembre 2025</p>
+                <h3 class="news-heading">Nuevo Proyecto Social Inicia</h3>
+                <p class="news-description">Iniciamos un nuevo programa para fortalecer habilidades de los jóvenes en
+                  situación de discapacidad.</p>
+                <a href="#" class="btn btn-primary mt-3 px-4 py-2">Leer más</a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="carousel-item">
+            <div class="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200">
+              <img src="assets/noticia3.jpg" class="news-image" alt="Noticia 3">
+              <div class="news-overlay">
+                <p class="news-date">Fecha: 5 Diciembre 2025</p>
+                <h3 class="news-heading">Fundación Recibe Reconocimiento</h3>
+                <p class="news-description">Por su labor en apoyo a familias con niños en condición de discapacidad.</p>
+                <a href="#" class="btn btn-primary mt-3 px-4 py-2">Leer más</a>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+
+
+      </div>
+    </div>
+  </section>
+  <!-- ========== END NEWS CAROUSEL ========== -->
+
+  <!-- ============ END NEWS ============ -->
+
 
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="cta-background"></div>
     <div class="container-xl">
+
       <div class="row align-items-center">
+
         <div class="col-lg-7">
           <h2 class="cta-title">Conoce Nuestra Misión, Visión y Valores</h2>
-          <p class="cta-text">Descubre los principios fundamentales que guían nuestro trabajo y compromiso con la comunidad.</p>
+          <p class="cta-text">Descubre los principios fundamentales que guían nuestro trabajo y compromiso con la
+            comunidad.</p>
         </div>
+
         <div class="col-lg-5 text-lg-end text-center">
           <button class="btn btn-light btn-lg fw-bold" (click)="onVerMisionVisionValores()">
             Descubrir Más <i class="fas fa-arrow-right ms-2"></i>
           </button>
         </div>
+
       </div>
+
     </div>
   </section>
-  <!-- Map at end of Home Page -->
+
+  <!-- Map Section -->
   <section class="home-map-section mt-5">
     <div class="container-xl">
       <div class="map-card">
+
         <div class="map-card-header">
           <h3 class="map-title">Ubicación — Plato, Magdalena</h3>
           <div class="map-coords">Coordenadas: 9.7925, -74.7825</div>
         </div>
+
         <div class="map-card-body">
-          <iframe
-            title="Mapa - Plato, Magdalena"
-            src="https://www.google.com/maps?q=9.7925,-74.7825&z=14&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe title="Mapa - Plato, Magdalena" src="https://www.google.com/maps?q=9.7925,-74.7825&z=14&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
+
       </div>
     </div>
   </section>
+
 </div>

@@ -1,0 +1,56 @@
+/* Afiliación page styles */
+.afiliacion-page {
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+.afiliacion-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(10, 30, 80, 0.06);
+}
+
+.afiliacion-title {
+  font-size: 1.8rem;
+  color: #c41e3a;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.afiliacion-intro {
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.form-embed iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.afiliacion-note {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.afiliacion-info {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(10, 30, 80, 0.06);
+}
+
+.afiliacion-info h4 {
+  font-size: 1.1rem;
+  color: #1a2a4e;
+}
+
+@media (max-width: 768px) {
+  .afiliacion-page { padding: 40px 0; }
+  .form-embed iframe { height: 900px; }
+}
+
+@media (max-width: 576px) {
+  .form-embed iframe { height: 700px; }
+}
