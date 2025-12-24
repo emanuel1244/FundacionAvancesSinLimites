@@ -1,10 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { Router, RouterOutlet, RouterLink } from '@angular/router';
+import { NotificationPanelComponent } from './components/notification-panel/notification-panel.component';
+import { ToastNotificationsComponent } from './components/toast-notifications/toast-notifications.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, NotificationPanelComponent, ToastNotificationsComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

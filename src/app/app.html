@@ -3,8 +3,15 @@
   <div class="container-xl">
     <a class="navbar-brand fw-bold" routerLink="/home">
       <div class="brand-logo">
-        <span class="brand-text">Fundación</span>
-        <span class="brand-highlight">Avanza Sin Límites</span>
+        <img src="assets/Logo-FASL-Color.png" alt="Fundación Avanza Sin Límites" class="navbar-logo">
+        <div class="brand-text-container">
+          <div class="brand-line-1">
+            <span class="brand-text">FUNDACIÓN</span>
+          </div>
+          <div class="brand-line-2">
+            <span class="brand-highlight">AVANZA SIN LÍMITES</span>
+          </div>
+        </div>
       </div>
     </a>
 
@@ -20,9 +27,15 @@
         <a class="nav-link nav-item-custom" routerLink="/afiliacion">Afiliación</a>
         <a class="nav-link nav-item-custom" routerLink="/mision-vision-valores">Misión, Visión y Valores</a>
         <a class="nav-link nav-item-custom" routerLink="/juridico">Jurídico</a>
+        <a class="nav-link nav-item-custom" routerLink="/noticias">Noticias</a>
 
         <a class="nav-link nav-item-custom" href="https://checkout.wompi.co/l/uJkz0h" target="_blank" rel="noopener">
           <i class="fas fa-heart me-1"></i> Donar Ahora
+        </a>
+
+        <!-- Admin Access (discreto) -->
+        <a class="nav-link nav-item-custom admin-link" routerLink="/admin-login" title="Acceso Administrativo">
+          <i class="fas fa-user-shield"></i>
         </a>
 
       </div>
@@ -125,4 +138,10 @@
 <a href="https://wa.me/573007654321" target="_blank" rel="noopener" aria-label="WhatsApp" class="floating-whatsapp-btn" title="Hablemos por WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
+
+<!-- Notification Panel -->
+<app-notification-panel></app-notification-panel>
+
+<!-- Toast Notifications -->
+<app-toast-notifications></app-toast-notifications>
 

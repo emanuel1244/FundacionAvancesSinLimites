@@ -1,7 +1,7 @@
 /* Eventos Page Styles */
 .eventos-page {
   min-height: 100vh;
-  background: #ffffff;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
   padding: 40px 0;
 }
 
@@ -17,21 +17,22 @@
 /* ==================== SIDEBAR ==================== */
 .eventos-sidebar {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(30, 58, 138, 0.12);
   height: fit-content;
   position: sticky;
   top: 100px;
+  border: 1px solid rgba(30, 58, 138, 0.08);
 }
 
 .sidebar-title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #1a2a4e;
+  color: #1e3a8a;
   margin-bottom: 25px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #0052cc;
+  border-bottom: 3px solid #06b6d4;
 }
 
 .eventos-list {
@@ -45,27 +46,29 @@
   align-items: center;
   gap: 12px;
   padding: 12px 15px;
-  background: #f8f9fa;
+  background: #f8fafc;
   border: 2px solid transparent;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   font-size: 0.95rem;
   font-weight: 500;
-  color: #555;
+  color: #64748b;
   text-align: left;
 }
 
 .evento-item:hover {
-  background: #e8f0ff;
-  border-color: #0052cc;
-  color: #0052cc;
+  background: rgba(6, 182, 212, 0.08);
+  border-color: #06b6d4;
+  color: #1e3a8a;
+  transform: translateY(-2px);
 }
 
 .evento-item.active {
-  background: #0052cc;
-  border-color: #0052cc;
+  background: linear-gradient(135deg, #1e3a8a 0%, #06b6d4 100%);
+  border-color: #06b6d4;
   color: white;
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.25);
 }
 
 .evento-num {
@@ -74,14 +77,14 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background: rgba(255, 196, 0, 0.3);
+  background: rgba(6, 182, 212, 0.2);
   border-radius: 50%;
   font-weight: 700;
   font-size: 0.9rem;
 }
 
 .evento-item.active .evento-num {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .evento-nombre {
@@ -135,30 +138,30 @@
 .evento-titulo {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #c41e3a;
+  color: #1e3a8a;
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .evento-descripcion {
   font-size: 1.05rem;
-  color: #555;
+  color: #64748b;
   line-height: 1.8;
   margin-bottom: 25px;
   text-align: justify;
 }
 
 .evento-info-box {
-  background: #f0f7ff;
-  border-left: 4px solid #0052cc;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border-left: 4px solid #06b6d4;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   margin: 25px 0;
 }
 
 .evento-detalles {
   font-size: 1rem;
-  color: #333;
+  color: #1e293b;
   line-height: 1.8;
   margin: 0;
 }
@@ -172,13 +175,13 @@
 .seccion-titulo {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #1a2a4e;
+  color: #1e3a8a;
   margin-bottom: 12px;
 }
 
 .seccion-texto {
   font-size: 1rem;
-  color: #555;
+  color: #64748b;
   line-height: 1.8;
   text-align: justify;
 }

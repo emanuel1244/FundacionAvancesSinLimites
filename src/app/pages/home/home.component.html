@@ -48,11 +48,15 @@
           </h2>
 
           <p class="about-text">
-            ASODISVALLE es una entidad sin ánimo de lucro, con amplia experiencia en el trabajo con población con
-            discapacidad, brindando servicios de educación, rehabilitación integral, alimentación y transporte.
-            Liderada por Jeison Aristizábal, diagnosticado con parálisis cerebral, un soñador y emprendedor que busca
-            oportunidades para esta población.
-            La fundación atiende alrededor de 800 niños, niñas, jóvenes y adultos con diferentes tipos de discapacidad.
+          La Fundación Avanza Sin Límites es una organización sin ánimo de lucro ubicada en Plato, Magdalena, comprometida con la
+          defensa de los derechos y la inclusión social de las personas con discapacidad. Trabajamos para promover la igualdad, el
+          respeto y el bienestar de esta población, fortaleciendo su participación activa en la comunidad.
+          
+          Consultorio Jurídico
+          
+          La Fundación ofrece un servicio de orientación y asesoría jurídica gratuita, enfocado en informar y acompañar a las
+          personas con discapacidad y sus familias en la defensa de sus derechos. Brindamos apoyo en casos de vulneración,
+          orientación legal básica y remisión a entidades competentes cuando se requiere.
           </p>
 
           <button class="btn btn-primary btn-lg mt-3">VER MÁS</button>
@@ -121,12 +125,25 @@
       <div class="container-xl">
         <div class="row align-items-center">
 
-          <div class="col-lg-6">
+          <div class="col-lg-8">
+            <!-- Logo de la Fundación -->
+            <div class="stats-logo-container mb-4">
+              <img src="assets/Logo-FASL-Color.png" alt="Fundación Avanza Sin Límites" class="stats-logo">
+            </div>
+            
             <p class="stats-subtitle">Tu generosidad es una</p>
             <h3 class="stats-highlight">OPORTUNIDAD<br>PARA ELLOS.</h3>
+            
+            <!-- Botón de prueba de notificaciones (temporal) -->
+            <button 
+              class="btn btn-outline-light btn-sm mt-3" 
+              (click)="testNotification()"
+              title="Probar sistema de notificaciones">
+              <i class="fas fa-bell me-2"></i>Probar Notificaciones
+            </button>
           </div>
 
-          <div class="col-lg-6 text-lg-end d-none d-lg-block">
+          <div class="col-lg-4 text-lg-end d-none d-lg-block">
             <div class="stats-icon"><i class="fas fa-hands-helping"></i></div>
           </div>
 
@@ -238,7 +255,7 @@
         <!-- Noticia 3 -->
         <div class="news-card-v2">
           <div class="news-card-image">
-            <img src="assets/noticia3.jpg" alt="Noticia 3">
+            <img src="assets/fundacion3.jpeg" alt="Noticia 3">
             <span class="news-card-date">4 junio de 2025</span>
           </div>
           <div class="news-card-content">

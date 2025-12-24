@@ -1,0 +1,268 @@
+<!-- Admin Dashboard -->
+<div class="admin-container">
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="header-content">
+      <div class="header-left">
+        <img src="assets/Logo-FASL-Color.png" alt="FASL" class="header-logo">
+        <div class="header-info">
+          <h1 class="header-title">Panel Administrativo</h1>
+          <p class="header-subtitle">Gestión de Noticias y Notificaciones</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="user-info">
+          <i class="fas fa-user-shield"></i>
+          <span>{{ currentUser?.name }}</span>
+        </div>
+        <button class="btn-secondary" (click)="goToHome()">
+          <i class="fas fa-home"></i> Inicio
+        </button>
+        <button class="btn-danger" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i> Salir
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stats Cards -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon success">
+          <i class="fas fa-newspaper"></i>
+        </div>
+        <div class="stat-content">
+          <h3>{{ stats.total }}</h3>
+          <p>Total Noticias</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon info">
+          <i class="fas fa-eye"></i>
+        </div>
+        <div class="stat-content">
+          <h3>{{ stats.published }}</h3>
+          <p>Publicadas</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon warning">
+          <i class="fas fa-edit"></i>
+        </div>
+        <div class="stat-content">
+          <h3>{{ stats.drafts }}</h3>
+          <p>Borradores</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon primary">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="stat-content">
+          <h3>{{ stats.totalViews }}</h3>
+          <p>Total Vistas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Controls -->
+  <section class="controls-section">
+    <div class="controls-header">
+      <h2>Gestión de Noticias</h2>
+      <button class="btn-primary" (click)="showCreateNewsForm()">
+        <i class="fas fa-plus"></i> Nueva Noticia
+      </button>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-row">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Buscar noticias..."
+          [(ngModel)]="searchQuery"
+          (input)="onSearchChange()">
+      </div>
+      <select [(ngModel)]="selectedCategory" (change)="onFilterChange()" class="filter-select">
+        <option value="all">Todas las categorías</option>
+        <option *ngFor="let cat of categories" [value]="cat.value">{{ cat.label }}</option>
+      </select>
+      <select [(ngModel)]="selectedStatus" (change)="onFilterChange()" class="filter-select">
+        <option value="all">Todos los estados</option>
+        <option value="published">Publicadas</option>
+        <option value="draft">Borradores</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Create/Edit Form -->
+  <section class="form-section" *ngIf="showCreateForm">
+    <div class="form-card">
+      <div class="form-header">
+        <h3>{{ editingNews ? 'Editar Noticia' : 'Nueva Noticia' }}</h3>
+        <button class="btn-close" (click)="cancelForm()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <form (ngSubmit)="saveNews()" class="news-form">
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label>Título *</label>
+            <input
+              type="text"
+              [(ngModel)]="newsForm.title"
+              name="title"
+              placeholder="Título de la noticia"
+              required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Categoría</label>
+            <select [(ngModel)]="newsForm.category" name="category">
+              <option *ngFor="let cat of categories" [value]="cat.value">{{ cat.label }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Prioridad</label>
+            <select [(ngModel)]="newsForm.priority" name="priority">
+              <option *ngFor="let pri of priorities" [value]="pri.value">{{ pri.label }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Estado</label>
+            <select [(ngModel)]="newsForm.status" name="status">
+              <option value="draft">Borrador</option>
+              <option value="published">Publicada</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label>Imagen (URL)</label>
+            <input
+              type="url"
+              [(ngModel)]="newsForm.image"
+              name="image"
+              placeholder="URL de la imagen (opcional)">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label>Resumen *</label>
+            <textarea
+              [(ngModel)]="newsForm.summary"
+              name="summary"
+              rows="3"
+              placeholder="Resumen breve de la noticia"
+              required></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label>Contenido *</label>
+            <textarea
+              [(ngModel)]="newsForm.content"
+              name="content"
+              rows="8"
+              placeholder="Contenido completo de la noticia"
+              required></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                [(ngModel)]="newsForm.featured"
+                name="featured">
+              <span class="checkmark"></span>
+              Noticia destacada
+            </label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" (click)="cancelForm()" [disabled]="isLoading">
+            Cancelar
+          </button>
+          <button type="submit" class="btn-primary" [disabled]="isLoading">
+            <span *ngIf="!isLoading">
+              <i class="fas fa-save"></i>
+              {{ editingNews ? 'Actualizar' : 'Crear' }} Noticia
+            </span>
+            <span *ngIf="isLoading">
+              <i class="fas fa-spinner fa-spin"></i>
+              Guardando...
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- News List -->
+  <section class="news-section">
+    <div class="news-list" *ngIf="filteredNews.length > 0; else noNews">
+      <div *ngFor="let news of filteredNews" class="news-item">
+        <div class="news-image" *ngIf="news.image">
+          <img [src]="news.image" [alt]="news.title">
+        </div>
+        <div class="news-content">
+          <div class="news-header">
+            <h3 class="news-title">{{ news.title }}</h3>
+            <div class="news-badges">
+              <span class="badge" [class]="'badge-' + news.category">{{ getCategoryLabel(news.category) }}</span>
+              <span class="badge" [class]="'badge-priority-' + news.priority">{{ getPriorityLabel(news.priority) }}</span>
+              <span class="badge" [class]="'badge-status-' + news.status">
+                {{ news.status === 'published' ? 'Publicada' : 'Borrador' }}
+              </span>
+              <span class="badge badge-featured" *ngIf="news.featured">Destacada</span>
+            </div>
+          </div>
+          <p class="news-summary">{{ news.summary }}</p>
+          <div class="news-meta">
+            <span><i class="fas fa-user"></i> {{ news.author }}</span>
+            <span><i class="fas fa-calendar"></i> {{ formatDate(news.createdAt) }}</span>
+            <span><i class="fas fa-eye"></i> {{ news.views }} vistas</span>
+          </div>
+        </div>
+        <div class="news-actions">
+          <button class="btn-action edit" (click)="editNews(news)" title="Editar">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button 
+            class="btn-action" 
+            [class]="news.status === 'published' ? 'unpublish' : 'publish'"
+            (click)="togglePublishStatus(news)"
+            [title]="news.status === 'published' ? 'Despublicar' : 'Publicar'">
+            <i [class]="news.status === 'published' ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+          </button>
+          <button class="btn-action delete" (click)="deleteNews(news)" title="Eliminar">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noNews>
+      <div class="no-news">
+        <i class="fas fa-newspaper"></i>
+        <h3>No hay noticias</h3>
+        <p>{{ searchQuery || selectedCategory !== 'all' || selectedStatus !== 'all' ? 'No se encontraron noticias con los filtros aplicados' : 'Aún no has creado ninguna noticia' }}</p>
+        <button class="btn-primary" (click)="showCreateNewsForm()" *ngIf="!searchQuery && selectedCategory === 'all' && selectedStatus === 'all'">
+          <i class="fas fa-plus"></i> Crear Primera Noticia
+        </button>
+      </div>
+    </ng-template>
+  </section>
+</div>

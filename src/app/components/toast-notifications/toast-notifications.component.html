@@ -1,0 +1,24 @@
+<!-- Toast Notifications Container -->
+<div class="toast-container">
+  <div 
+    *ngFor="let notification of toastNotifications; trackBy: trackByFn" 
+    class="toast-notification"
+    [class]="'toast-' + notification.type">
+    
+    <div class="toast-icon">
+      <i [class]="getNotificationIcon(notification.type)"></i>
+    </div>
+    
+    <div class="toast-content">
+      <h5 class="toast-title">{{ notification.title }}</h5>
+      <p class="toast-message">{{ notification.message }}</p>
+    </div>
+    
+    <button 
+      class="toast-close" 
+      (click)="closeToast(notification.id)"
+      title="Cerrar">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>

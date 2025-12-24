@@ -1,0 +1,101 @@
+<!-- Admin Login Page -->
+<div class="login-container">
+  <div class="login-background">
+    <div class="login-overlay"></div>
+  </div>
+
+  <div class="login-content">
+    <div class="login-card">
+      <!-- Header -->
+      <div class="login-header">
+        <img src="assets/Logo-FASL-Color.png" alt="FASL Logo" class="login-logo">
+        <h2 class="login-title">Panel Administrativo</h2>
+        <p class="login-subtitle">Fundación Avanza Sin Límites</p>
+      </div>
+
+      <!-- Form -->
+      <form (ngSubmit)="onSubmit()" class="login-form">
+        <!-- Username Field -->
+        <div class="form-group">
+          <label for="username" class="form-label">
+            <i class="fas fa-user"></i>
+            Usuario
+          </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="username"
+            class="form-input"
+            placeholder="Ingresa tu usuario"
+            [disabled]="isLoading"
+            autocomplete="username"
+            required>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password" class="form-label">
+            <i class="fas fa-lock"></i>
+            Contraseña
+          </label>
+          <div class="password-input-container">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              name="password"
+              [(ngModel)]="password"
+              class="form-input"
+              placeholder="Ingresa tu contraseña"
+              [disabled]="isLoading"
+              autocomplete="current-password"
+              required>
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="togglePasswordVisibility()"
+              [disabled]="isLoading">
+              <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" *ngIf="errorMessage">
+          <i class="fas fa-exclamation-triangle"></i>
+          {{ errorMessage }}
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="login-button"
+          [disabled]="isLoading || !username.trim() || !password.trim()">
+          <span *ngIf="!isLoading">
+            <i class="fas fa-sign-in-alt"></i>
+            Iniciar Sesión
+          </span>
+          <span *ngIf="isLoading" class="loading-content">
+            <i class="fas fa-spinner fa-spin"></i>
+            Verificando...
+          </span>
+        </button>
+      </form>
+
+      <!-- Footer -->
+      <div class="login-footer">
+        <button class="back-button" (click)="goHome()" [disabled]="isLoading">
+          <i class="fas fa-arrow-left"></i>
+          Volver al Inicio
+        </button>
+      </div>
+
+      <!-- Demo Credentials -->
+      <div class="demo-credentials">
+        <h4>Credenciales de Prueba:</h4>
+        <p><strong>Usuario:</strong> admin</p>
+        <p><strong>Contraseña:</strong> fundacion2024</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
-import { Component, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements AfterViewInit {
   activeSlideIndex: number = 0;
+
+  // Logo de la fundación
+  logoPath = 'assets/Logo-FASL-Color.png';
 
   momentPhotos = [
     'fundacion.jpeg',
@@ -32,7 +36,11 @@ export class HomeComponent implements AfterViewInit {
     'fundacion10.jpg'
   ];
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private router: Router, 
+    private cdr: ChangeDetectorRef,
+    private notificationService: NotificationService
+  ) {}
 
   ngAfterViewInit() {
     const carouselElement = document.getElementById('sectionSlider');
@@ -59,5 +67,29 @@ export class HomeComponent implements AfterViewInit {
 
   getPhotoPos(photo: any): string {
     return (photo && photo.pos) ? photo.pos : 'center';
+  }
+
+  // Método para probar notificaciones
+  testNotification() {
+    const notifications = [
+      {
+        title: 'Prueba Exitosa',
+        message: 'El sistema de notificaciones está funcionando correctamente.',
+        type: 'success' as const
+      },
+      {
+        title: 'Nueva Donación',
+        message: 'Se ha recibido una donación de $25.000 COP.',
+        type: 'info' as const
+      },
+      {
+        title: 'Evento Recordatorio',
+        message: 'No olvides el taller de mañana a las 3:00 PM.',
+        type: 'warning' as const
+      }
+    ];
+
+    const randomNotification = notifications[Math.floor(Math.random() * notifications.length)];
+    this.notificationService.addNotification(randomNotification);
   }
 }

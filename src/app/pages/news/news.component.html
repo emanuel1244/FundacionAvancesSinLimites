@@ -1,0 +1,145 @@
+<!-- News Page -->
+<div class="news-page">
+  <!-- Header -->
+  <section class="news-header">
+    <div class="container-xl">
+      <div class="header-content">
+        <button class="back-button" (click)="goHome()">
+          <i class="fas fa-arrow-left"></i>
+          Volver al Inicio
+        </button>
+        <div class="header-text">
+          <h1 class="page-title">Todas las Noticias</h1>
+          <p class="page-subtitle">Mantente informado sobre nuestras actividades y logros</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured News -->
+  <section class="featured-section" *ngIf="featuredNews.length > 0">
+    <div class="container-xl">
+      <h2 class="section-title">
+        <i class="fas fa-star"></i>
+        Noticias Destacadas
+      </h2>
+      <div class="featured-grid">
+        <div *ngFor="let news of featuredNews" class="featured-card" (click)="readNews(news)">
+          <div class="featured-image" *ngIf="news.image">
+            <img [src]="news.image" [alt]="news.title">
+            <div class="featured-overlay">
+              <div class="featured-category">
+                <i [class]="getCategoryInfo(news.category).icon"></i>
+                {{ getCategoryInfo(news.category).label }}
+              </div>
+            </div>
+          </div>
+          <div class="featured-content">
+            <h3 class="featured-title">{{ news.title }}</h3>
+            <p class="featured-summary">{{ news.summary }}</p>
+            <div class="featured-meta">
+              <span class="featured-date">
+                <i class="fas fa-calendar"></i>
+                {{ getTimeAgo(news.createdAt) }}
+              </span>
+              <span class="featured-views">
+                <i class="fas fa-eye"></i>
+                {{ news.views }} vistas
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="filter-section">
+    <div class="container-xl">
+      <div class="category-filters">
+        <button
+          *ngFor="let category of categories"
+          class="category-btn"
+          [class.active]="selectedCategory === category.value"
+          (click)="onCategoryChange(category.value)">
+          <i [class]="category.icon"></i>
+          {{ category.label }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- All News -->
+  <section class="all-news-section">
+    <div class="container-xl">
+      <div class="section-header">
+        <h2 class="section-title">
+          {{ selectedCategory === 'all' ? 'Todas las Noticias' : getCategoryInfo(selectedCategory).label }}
+        </h2>
+        <div class="news-count">
+          {{ getFilteredNews().length }} {{ getFilteredNews().length === 1 ? 'noticia' : 'noticias' }}
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div class="loading-container" *ngIf="isLoading">
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>Cargando noticias...</p>
+        </div>
+      </div>
+
+      <!-- News Grid -->
+      <div class="news-grid" *ngIf="!isLoading && getFilteredNews().length > 0">
+        <div *ngFor="let news of getFilteredNews()" class="news-card" (click)="readNews(news)">
+          <div class="news-image" *ngIf="news.image">
+            <img [src]="news.image" [alt]="news.title">
+            <div class="news-overlay">
+              <div class="news-category">
+                <i [class]="getCategoryInfo(news.category).icon"></i>
+                {{ getCategoryInfo(news.category).label }}
+              </div>
+            </div>
+          </div>
+          <div class="news-content">
+            <h3 class="news-title">{{ news.title }}</h3>
+            <p class="news-summary">{{ news.summary }}</p>
+            <div class="news-meta">
+              <div class="meta-left">
+                <span class="news-date">
+                  <i class="fas fa-calendar"></i>
+                  {{ formatDate(news.createdAt) }}
+                </span>
+                <span class="news-author">
+                  <i class="fas fa-user"></i>
+                  {{ news.author }}
+                </span>
+              </div>
+              <div class="meta-right">
+                <span class="news-views">
+                  <i class="fas fa-eye"></i>
+                  {{ news.views }}
+                </span>
+              </div>
+            </div>
+            <button class="read-more-btn">
+              <i class="fas fa-arrow-right"></i>
+              Leer más
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- No News -->
+      <div class="no-news" *ngIf="!isLoading && getFilteredNews().length === 0">
+        <i class="fas fa-newspaper"></i>
+        <h3>No hay noticias disponibles</h3>
+        <p>{{ selectedCategory === 'all' ? 'Aún no se han publicado noticias' : 'No hay noticias en esta categoría' }}</p>
+        <button class="btn-primary" (click)="onCategoryChange('all')" *ngIf="selectedCategory !== 'all'">
+          <i class="fas fa-th-large"></i>
+          Ver todas las categorías
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
